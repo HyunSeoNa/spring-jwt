@@ -22,7 +22,7 @@ public class JwtUtils {
 
     private SecretKey secretKey;
 
-    public JwtUtils(@Value("${jwt.secretKey}") String secretKey) {
+    public JwtUtils(@Value("${spring.jwt.secret}") String secretKey) {
         this.secretKey = new SecretKeySpec(secretKey.getBytes(StandardCharsets.UTF_8), Jwts.SIG.HS256.key().build().getAlgorithm());
     }
 
