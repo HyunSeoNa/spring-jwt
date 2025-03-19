@@ -7,3 +7,5 @@ spring:
   jpa:
     hibernate.ddl-auto: none    # create, auto
     hibernate.naming.physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  jwt:
+    secret: "skgustj"
