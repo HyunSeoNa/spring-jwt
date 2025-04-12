@@ -1,5 +1,6 @@
 package com.example.springjwt.config;
 
+import com.example.springjwt.jwt.JWTFilter;
 import com.example.springjwt.jwt.JwtUtils;
 import com.example.springjwt.jwt.LoginFilter;
 import lombok.RequiredArgsConstructor;
@@ -66,6 +67,7 @@ public class SecurityConfig {
 
         // filter 등록
         http
+                .addFilterBefore(new JWTFilter(jwtUtils), LoginFilter.class)
                 .addFilterAt(new LoginFilter(authenticationManager(authenticationConfiguration), jwtUtils), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
